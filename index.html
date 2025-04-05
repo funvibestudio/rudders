@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Rudders Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center/cover;
+        }
+        .language-selection {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        .language-selection h2 {
+            margin-bottom: 20px;
+        }
+        .language-selection button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .language-selection button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            color: white;
+            display: none;
+        }
+        .container h1 { margin-bottom: 10px; }
+        .container p { margin-bottom: 20px; }
+        .container a {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .container a:hover { background: rgba(255, 255, 255, 0.3); }
+    </style>
+</head>
+<body>
+    <div class="language-selection" id="langSelect">
+        <h2>Choisissez votre langue / Choose your language</h2>
+        <button onclick="setLanguage('fr')">🇫🇷 Français</button>
+        <button onclick="setLanguage('en')">🇬🇧 English</button>
+    </div>
+    <div class="container" id="content">
+        <h1>Bienvenue sur mon projet de palonniers DIY</h1>
+        <p>Découvrez comment construire vos propres palonniers pour simulateur de vol avec Arduino.</p>
+        <a href="tutorialfr.pdf" download>Télécharger le tutoriel</a>
+    </div>
+    <script>
+        function setLanguage(lang) {
+            document.getElementById('langSelect').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            if (lang === 'en') {
+                document.getElementById('content').innerHTML = `
+                    <h1>Welcome to My DIY Rudders Project</h1>
+                    <p>Learn how to build your own rudders for flight simulation with Arduino.</p>
+                    <a href="tutorialen.pdf" download>Download the Tutorial</a>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
